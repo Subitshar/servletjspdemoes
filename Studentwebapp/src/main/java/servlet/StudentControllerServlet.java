@@ -42,7 +42,16 @@ public class StudentControllerServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String firstname=request.getParameter("firstname");
+		String lastname=request.getParameter("lastname");
+		String email=request.getParameter("email");
+		
+		Student student= new Student(0, firstname, lastname, email);
+		
+		StudentDBUtil.addStudent(student);
+		
+		doGet(request,response);
+
 	}
 
 }

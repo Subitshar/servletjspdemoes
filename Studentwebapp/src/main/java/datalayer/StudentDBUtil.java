@@ -2,7 +2,8 @@ package datalayer;
 
 	
 	import java.sql.Connection;
-	import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 	import java.sql.SQLException;
 	import java.sql.Statement;
 	import java.util.ArrayList;
@@ -14,7 +15,7 @@ package datalayer;
 
 	public class StudentDBUtil {
 		
-		private DataSource dataSource;
+		private static DataSource dataSource;
 		
 		public StudentDBUtil(DataSource dataSource) {
 			this.dataSource = dataSource;
@@ -50,7 +51,31 @@ package datalayer;
 			return students;
 		}
 
-		private void close(Connection conn, Statement stmt, ResultSet rs) {
+		
+
+		public static void addStudent(Student student) {
+			Connection conn = null;
+			PreparedStatement stmt = null;
+			
+			try {
+				conn = dataSource.getConnection();
+				String sql = "insert into student (firstname, lastname, email) values (?, ?, ?)";
+				stmt = conn.prepareStatement(sql);
+				
+				stmt.setString(1, student.getFirstname());
+				stmt.setString(2, student.getLastname());
+				stmt.setString(3, student.getEmailid());
+				
+				stmt.execute();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(conn, stmt, null);
+			}
+		}
+		
+		private static void close(Connection conn, Statement stmt, ResultSet rs) {
 
 			try {
 				if (rs != null) rs.close();
