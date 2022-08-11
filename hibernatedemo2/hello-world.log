@@ -1,0 +1,293 @@
+12:33:34,638 DEBUG SQL:103 - 
+    
+    drop table if exists User
+12:33:34,786 DEBUG SQL:103 - 
+    
+    create table User (
+       id bigint not null auto_increment,
+        age integer,
+        billing_city varchar(255),
+        billing_houseno varchar(255),
+        billing_pincode varchar(255),
+        billing_street varchar(255),
+        name varchar(255),
+        shipping_city varchar(255),
+        shipping_houseno varchar(255),
+        shipping_pincode varchar(255),
+        shipping_street varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+12:33:34,980 DEBUG SQL:103 - 
+    insert 
+    into
+        User
+        (age, billing_city, billing_houseno, billing_pincode, billing_street, name, shipping_city, shipping_houseno, shipping_pincode, shipping_street) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+12:33:35,008 TRACE BasicBinder:65 - binding parameter [1] as [INTEGER] - [34]
+12:33:35,009 TRACE BasicBinder:65 - binding parameter [2] as [VARCHAR] - [Chennai]
+12:33:35,010 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [12]
+12:33:35,012 TRACE BasicBinder:65 - binding parameter [4] as [VARCHAR] - [612345]
+12:33:35,012 TRACE BasicBinder:65 - binding parameter [5] as [VARCHAR] - [Main Street]
+12:33:35,013 TRACE BasicBinder:65 - binding parameter [6] as [VARCHAR] - [Ajay]
+12:33:35,014 TRACE BasicBinder:65 - binding parameter [7] as [VARCHAR] - [Trichy]
+12:33:35,018 TRACE BasicBinder:65 - binding parameter [8] as [VARCHAR] - [65/12]
+12:33:35,022 TRACE BasicBinder:65 - binding parameter [9] as [VARCHAR] - [412385]
+12:33:35,027 TRACE BasicBinder:65 - binding parameter [10] as [VARCHAR] - [Busy Street]
+13:03:57,156 DEBUG SQL:103 - 
+    
+    alter table Student 
+       drop 
+       foreign key FKb4ny3l3cnsxbbn601ev8mhlj5
+13:03:57,213 DEBUG SQL:103 - 
+    
+    drop table if exists Guide
+13:03:57,262 DEBUG SQL:103 - 
+    
+    drop table if exists Student
+13:03:57,333 DEBUG SQL:103 - 
+    
+    drop table if exists User
+13:03:57,387 DEBUG SQL:103 - 
+    
+    create table Guide (
+       id bigint not null auto_increment,
+        name varchar(255),
+        salary integer,
+        staff_id varchar(255) not null,
+        primary key (id)
+    ) engine=InnoDB
+13:03:57,425 DEBUG SQL:103 - 
+    
+    create table Student (
+       id bigint not null auto_increment,
+        name varchar(255),
+        registration_id varchar(255) not null,
+        guide_id bigint,
+        primary key (id)
+    ) engine=InnoDB
+13:03:57,462 DEBUG SQL:103 - 
+    
+    create table User (
+       id bigint not null auto_increment,
+        age integer,
+        billing_city varchar(255),
+        billing_houseno varchar(255),
+        billing_pincode varchar(255),
+        billing_street varchar(255),
+        name varchar(255),
+        shipping_city varchar(255),
+        shipping_houseno varchar(255),
+        shipping_pincode varchar(255),
+        shipping_street varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+13:03:57,489 DEBUG SQL:103 - 
+    
+    alter table Student 
+       add constraint FKb4ny3l3cnsxbbn601ev8mhlj5 
+       foreign key (guide_id) 
+       references Guide (id)
+13:03:57,825 DEBUG SQL:103 - 
+    insert 
+    into
+        Guide
+        (name, salary, staff_id) 
+    values
+        (?, ?, ?)
+13:03:57,850 TRACE BasicBinder:65 - binding parameter [1] as [VARCHAR] - [Mike Lawson]
+13:03:57,856 TRACE BasicBinder:65 - binding parameter [2] as [INTEGER] - [1000]
+13:03:57,856 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [2000ABC001]
+13:03:57,874 DEBUG SQL:103 - 
+    insert 
+    into
+        Student
+        (guide_id, name, registration_id) 
+    values
+        (?, ?, ?)
+13:03:57,877 TRACE BasicBinder:65 - binding parameter [1] as [BIGINT] - [1]
+13:03:57,878 TRACE BasicBinder:65 - binding parameter [2] as [VARCHAR] - [Max]
+13:03:57,878 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [SR001]
+13:03:57,888 DEBUG SQL:103 - 
+    insert 
+    into
+        Student
+        (guide_id, name, registration_id) 
+    values
+        (?, ?, ?)
+13:03:57,889 TRACE BasicBinder:65 - binding parameter [1] as [BIGINT] - [1]
+13:03:57,890 TRACE BasicBinder:65 - binding parameter [2] as [VARCHAR] - [Bob]
+13:03:57,890 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [SR002]
+10:02:29,779 DEBUG SQL:103 - 
+    
+    alter table Student 
+       drop 
+       foreign key FKb4ny3l3cnsxbbn601ev8mhlj5
+10:02:29,946 DEBUG SQL:103 - 
+    
+    drop table if exists Guide
+10:02:29,973 DEBUG SQL:103 - 
+    
+    drop table if exists Student
+10:02:29,998 DEBUG SQL:103 - 
+    
+    drop table if exists User
+10:02:30,029 DEBUG SQL:103 - 
+    
+    create table Guide (
+       id bigint not null auto_increment,
+        name varchar(255),
+        salary integer,
+        staff_id varchar(255) not null,
+        primary key (id)
+    ) engine=InnoDB
+10:02:30,064 DEBUG SQL:103 - 
+    
+    create table Student (
+       id bigint not null auto_increment,
+        age integer not null,
+        name varchar(255),
+        registration_id varchar(255) not null,
+        guide_id bigint,
+        primary key (id)
+    ) engine=InnoDB
+10:02:30,093 DEBUG SQL:103 - 
+    
+    create table User (
+       id bigint not null auto_increment,
+        age integer,
+        billing_city varchar(255),
+        billing_houseno varchar(255),
+        billing_pincode varchar(255),
+        billing_street varchar(255),
+        name varchar(255),
+        shipping_city varchar(255),
+        shipping_houseno varchar(255),
+        shipping_pincode varchar(255),
+        shipping_street varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+10:02:30,127 DEBUG SQL:103 - 
+    
+    alter table Student 
+       add constraint FKb4ny3l3cnsxbbn601ev8mhlj5 
+       foreign key (guide_id) 
+       references Guide (id)
+10:02:30,442 DEBUG SQL:103 - 
+    insert 
+    into
+        Guide
+        (name, salary, staff_id) 
+    values
+        (?, ?, ?)
+10:02:30,458 TRACE BasicBinder:65 - binding parameter [1] as [VARCHAR] - [Robert Williams]
+10:02:30,460 TRACE BasicBinder:65 - binding parameter [2] as [INTEGER] - [2000]
+10:02:30,461 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [2000XYZ003]
+10:02:30,479 DEBUG SQL:103 - 
+    insert 
+    into
+        Student
+        (age, guide_id, name, registration_id) 
+    values
+        (?, ?, ?, ?)
+10:02:30,480 TRACE BasicBinder:65 - binding parameter [1] as [INTEGER] - [25]
+10:02:30,482 TRACE BasicBinder:65 - binding parameter [2] as [BIGINT] - [1]
+10:02:30,482 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [Amy Jackson]
+10:02:30,485 TRACE BasicBinder:65 - binding parameter [4] as [VARCHAR] - [SR002]
+10:02:30,490 DEBUG SQL:103 - 
+    insert 
+    into
+        Student
+        (age, guide_id, name, registration_id) 
+    values
+        (?, ?, ?, ?)
+10:02:30,491 TRACE BasicBinder:65 - binding parameter [1] as [INTEGER] - [23]
+10:02:30,491 TRACE BasicBinder:65 - binding parameter [2] as [BIGINT] - [1]
+10:02:30,492 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [John Smith]
+10:02:30,493 TRACE BasicBinder:65 - binding parameter [4] as [VARCHAR] - [SR001]
+10:06:54,576 DEBUG SQL:103 - 
+    
+    alter table Student 
+       drop 
+       foreign key FKb4ny3l3cnsxbbn601ev8mhlj5
+10:06:54,615 DEBUG SQL:103 - 
+    
+    drop table if exists Guide
+10:06:54,641 DEBUG SQL:103 - 
+    
+    drop table if exists Student
+10:06:54,666 DEBUG SQL:103 - 
+    
+    drop table if exists User
+10:06:54,698 DEBUG SQL:103 - 
+    
+    create table Guide (
+       id bigint not null auto_increment,
+        name varchar(255),
+        salary integer,
+        staff_id varchar(255) not null,
+        primary key (id)
+    ) engine=InnoDB
+10:06:54,733 DEBUG SQL:103 - 
+    
+    create table Student (
+       id bigint not null auto_increment,
+        age integer not null,
+        name varchar(255),
+        registration_id varchar(255) not null,
+        guide_id bigint,
+        primary key (id)
+    ) engine=InnoDB
+10:06:54,759 DEBUG SQL:103 - 
+    
+    create table User (
+       id bigint not null auto_increment,
+        age integer,
+        billing_city varchar(255),
+        billing_houseno varchar(255),
+        billing_pincode varchar(255),
+        billing_street varchar(255),
+        name varchar(255),
+        shipping_city varchar(255),
+        shipping_houseno varchar(255),
+        shipping_pincode varchar(255),
+        shipping_street varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+10:06:54,784 DEBUG SQL:103 - 
+    
+    alter table Student 
+       add constraint FKb4ny3l3cnsxbbn601ev8mhlj5 
+       foreign key (guide_id) 
+       references Guide (id)
+10:06:55,020 DEBUG SQL:103 - 
+    insert 
+    into
+        Guide
+        (name, salary, staff_id) 
+    values
+        (?, ?, ?)
+10:06:55,034 TRACE BasicBinder:65 - binding parameter [1] as [VARCHAR] - [Robert Williams]
+10:06:55,036 TRACE BasicBinder:65 - binding parameter [2] as [INTEGER] - [2000]
+10:06:55,037 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [2000XYZ003]
+10:06:55,056 DEBUG SQL:103 - 
+    insert 
+    into
+        Guide
+        (name, salary, staff_id) 
+    values
+        (?, ?, ?)
+10:06:55,058 TRACE BasicBinder:65 - binding parameter [1] as [VARCHAR] - [Ian Botham]
+10:06:55,060 TRACE BasicBinder:65 - binding parameter [2] as [INTEGER] - [4000]
+10:06:55,061 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [2000PQR004]
+10:06:55,064 DEBUG SQL:103 - 
+    insert 
+    into
+        Student
+        (age, guide_id, name, registration_id) 
+    values
+        (?, ?, ?, ?)
+10:06:55,066 TRACE BasicBinder:65 - binding parameter [1] as [INTEGER] - [23]
+10:06:55,067 TRACE BasicBinder:65 - binding parameter [2] as [BIGINT] - [2]
+10:06:55,068 TRACE BasicBinder:65 - binding parameter [3] as [VARCHAR] - [John Smith]
+10:06:55,069 TRACE BasicBinder:65 - binding parameter [4] as [VARCHAR] - [SR001]

@@ -79,7 +79,7 @@ public class BookstoreService {
 				publisher.setName(rs.getString("publisher_name"));
 				book.setPublisher(publisher);
 				
-				Chapter chapter =new Chapter();
+				//Chapter chapter =new Chapter();
 				
 				
 			}
